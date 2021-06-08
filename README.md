@@ -1,11 +1,24 @@
-# Color
+# objectId
 
-Extremely tiny objectid package (1300 bytes gzipped) for parsing, manipulating, and computing CSS objectids.
+Extremely tiny package (1300 bytes gzipped) for no-side-effect attaching unique IDs to Javascript objects.
 
-In particular, supports most of the algorithms needed for WCAG accessibility guidelines, and a
-swatch algorithm superior to manipulating "lightness."
+IDs are stored in a `WeakMap`, so there's no alteration of the object in question (therefore cannot affect
+other code), but also without affecting GC.
 
-## Development Usage
+Supports IDs only for objects (including functions and arrays). IDs are based on the object "pointer," not based on the data inside the object. If you need to hash other data structures, you'll need to use a different hashing library.
+
+## Usage
+
+```js
+const a = {};
+const b = {};
+console.log(objectId(a));     // 1
+console.log(objectId(b));     // 2
+console.log(objectId(a));     // 1
+console.log(objectId(null));  // 0
+```
+
+## Development
 
 Build:
 

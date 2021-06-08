@@ -1,12 +1,19 @@
 import 'jest';      // Ref: https://jestjs.io/docs/en/expect#reference
 import objectId from "../src";
 
-
 test("construction", () => {
-  expect(new Color(0, 0, 0, 0).toCss()).toBe('#00000000');
-  expect(new Color(1, 1, 1, 1).toCss()).toBe('#ffffffff');
-  expect(new Color(0.5, 0.75, 0.25, 0.0625).toCss()).toBe('#80bf4010');
-  expect(new Color(0.502, 0.753, 0.25, 0.0625).toCss()).toBe('#80c04010');
-  expect(new Color(-1, -0.001, 1.0001, 2).toCss()).toBe('#0000ffff');
+  const a = { a: 1 };
+  const b = { a: 1 };
+  expect(objectId(a)).toBe(1);
+  expect(objectId(a)).toBe(1);
+  expect(objectId(b)).toBe(2);
+  expect(objectId(a)).toBe(1);
+  expect(objectId(b)).toBe(2);
+  expect(objectId({})).toBe(3);
+  expect(objectId({})).toBe(4);
+  expect(objectId({})).toBe(5);
+  expect(objectId(a)).toBe(1);
+  expect(objectId(b)).toBe(2);
+  expect(objectId(null)).toBe(0);   // special case
 });
 

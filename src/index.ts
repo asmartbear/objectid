@@ -14,7 +14,9 @@ let objectCount = 0;
  *
  * @param object object whose ID should be computed
  */
-export default function objectId(object: object): number {
+export default function objectId(object: object | null): number {
+  // Special case of `null`
+  if (object === null) return 0;
 
   // Optimistically load the ID; fastest if it's already there, and atomic with GC.
   let id = objIdMap.get(object);
