@@ -1,6 +1,6 @@
 {
   "name": "@asmartbear/objectid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Extremely small library for no-side-effect attaching unique IDs to Javascript objects",
   "keywords": [],
   "scripts": {
