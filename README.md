@@ -1,6 +1,6 @@
 # objectId
 
-Extremely tiny package (1300 bytes gzipped) for no-side-effect attaching unique IDs to Javascript objects.
+Extremely tiny package (253 bytes uncompressed) for no-side-effect attaching unique IDs to Javascript objects.
 
 IDs are stored in a `WeakMap`, so there's no alteration of the object in question (therefore cannot affect
 other code), but also without affecting GC.
